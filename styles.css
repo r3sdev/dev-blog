@@ -108,3 +108,41 @@ body {
     background-color: #2298A5;
 }
 
+.entry {
+    margin-top: 50px;
+}
+
+.entry__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.entry__header--title {
+    color: #3C3C3C;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+}
+
+.entry__header--date {
+    color: #087E8B;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    font-weight: 100;
+    font-style: normal;
+    margin-left: auto;
+}
+
+.entry__content {
+    color: #087E8B;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 150%;
+    margin: 5px 0 0 0;
+}
+
