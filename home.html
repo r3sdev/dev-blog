@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBlog</title>
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar__brand">
+            <img src="logo.svg" alt="The DevBlog logo" />DevBlog
+        </div>
+        <ul class="navbar__navigation">
+            <li class="navbar__navigation-item">
+                <a href="#" class="navbar__link">Recent</a>
+            </li>
+            <li class="navbar__navigation-item">
+                <a href="#" class="navbar__link">Calendar</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section>
+            <h1>Add new entry</h1>
+            <form class="form" action="/entry" method="POST">
+                <p class="form__input">
+                    <label for="entry" class="form__label">Sample:</label>
+                    <textarea name="content" id="entry" class="form__textarea"></textarea>
+                </p>
+                <button type="submit" class="form__submit">Add entry</button>
+            </form>
+        </section>
+        <section>
+            <h1>Recent posts</h1>
+            <article>
+                <div>
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <time datetime="12-01-2021">12 Jan</time>
+                </div>
+                <p>Nunc malesuada porta nisl at gravida. Phasellus mollis arcu lorem, eget lacinia elit lacinia vel. Sed sit amet felis condimentum, dignissim ex dignissim, dictum arcu. Integer finibus est eget odio aliquam hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__content">
+            <section class="left">
+                <a class="footer__item">Made with 💙 in ‘s-Hertogenbosch</a>
+                <a class="footer__item">Check out my other projects</a>
+            </section>
+            <section class="right">
+                <div class="footer__column">
+                    <a class="footer__item">Recent</a>
+                    <a class="footer__item">Calendar</a>
+                </div>
+                <div class="footer__column">
+                    <a class="footer__item">About</a>
+                    <a class="footer__item">Stack used</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>
