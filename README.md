@@ -6,4 +6,5 @@
 * run `flask run`
 
 # Installed packages
+* run `pip install -r requirements.txt` to install packages
 * run `pip freeze` to see installed packages
