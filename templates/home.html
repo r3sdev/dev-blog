@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
     <title>DevBlog</title>
-    <link rel="stylesheet" href="./static/styles.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
 </head>
 
 <body>
     <header class="navbar">
         <div class="navbar__brand">
-            <img class="navbar__logo" src="./static/logo.svg" alt="The DevBlog logo" />DevBlog
+            <img class="navbar__logo" src="/static/logo.svg" alt="The DevBlog logo" />DevBlog
         </div>
         <ul class="navbar__navigation">
             <li class="navbar__navigation-item navbar__navigation-item--active">
@@ -25,7 +25,7 @@
     <main class="main">
         <section>
             <h1>Add new entry</h1>
-            <form class="form" action="/entry" method="POST">
+            <form class="form" method="POST">
                 <p class="form__input">
                     <label for="entry" class="form__label">Entry contents:</label>
                     <textarea name="content" id="entry" class="form__textarea" placeholder="Write something for today ..."></textarea>
@@ -35,36 +35,21 @@
         </section>
         <section>
             <h1>Recent posts</h1>
-            <article class="entry">
-                <div class="entry__header">
-                    <h2 class="entry__header--title">Lorem ipsum dolor sit amet</h2>
-                    <time class="entry__header--date" datetime="12-01-2021">12 Jan</time>
-                </div>
-                <p class="entry__content">Nunc malesuada porta nisl at gravida. Phasellus mollis arcu lorem, eget lacinia elit lacinia vel. Sed
-                    sit amet felis condimentum, dignissim ex dignissim, dictum arcu. Integer finibus est eget odio
-                    aliquam hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                    mus.</p>
-            </article>
-            <article class="entry">
-                <div class="entry__header">
-                    <h2 class="entry__header--title">Lorem ipsum dolor sit amet</h2>
-                    <time class="entry__header--date" datetime="12-01-2021">12 Jan</time>
-                </div>
-                <p class="entry__content">Nunc malesuada porta nisl at gravida. Phasellus mollis arcu lorem, eget lacinia elit lacinia vel. Sed
-                    sit amet felis condimentum, dignissim ex dignissim, dictum arcu. Integer finibus est eget odio
-                    aliquam hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                    mus.</p>
-            </article>
-            <article class="entry">
-                <div class="entry__header">
-                    <h2 class="entry__header--title">Lorem ipsum dolor sit amet</h2>
-                    <time class="entry__header--date" datetime="12-01-2021">12 Jan</time>
-                </div>
-                <p class="entry__content">Nunc malesuada porta nisl at gravida. Phasellus mollis arcu lorem, eget lacinia elit lacinia vel. Sed
-                    sit amet felis condimentum, dignissim ex dignissim, dictum arcu. Integer finibus est eget odio
-                    aliquam hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                    mus.</p>
-            </article>
+            {% if entries|length == 0 %}
+                <p>No recent posts ...</p>
+            {% else %}
+                {% for entry in entries %}
+                    <article class="entry">
+                        <div class="entry__header">
+                            <h2 class="entry__header--title">{{ entry[0] | truncate(30, true )}}</h2>
+                            <time class="entry__header--date" datetime="{{ entry[1] }}">{{ entry[2]}}</time>
+                        </div>
+                        <p class="entry__content">
+                            {{ entry[0] }}
+                        </p>
+                    </article>
+                {% endfor %}
+            {% endif %}
         </section>
     </main>
     <footer class="footer">
