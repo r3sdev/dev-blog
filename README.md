@@ -3,4 +3,7 @@
 * `export FLASK_ENV=development`
 
 # Start the server
-* `run flask run`
+* run `flask run`
+
+# Installed packages
+* run `pip freeze` to see installed packages
