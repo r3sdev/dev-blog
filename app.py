@@ -13,16 +13,18 @@ def create_app():
     def home():
         if request.method == "POST":
             entry_content = request.form.get("content")
-            formatted_date = datetime.today().strftime("%Y-%m-%d")
-            app.db.entries.insert({"content": entry_content, "date": formatted_date})
+            date = datetime.now()
+            app.db.entries.insert({"content": entry_content, "date": date})
 
+        entries = list(app.db.entries.find({}).sort("date", -1))
+        print(entries)
         entries_with_date = [
             (
                 entry["content"],
                 entry["date"],
-                datetime.strptime(entry["date"], "%Y-%m-%d").strftime("%b %d")
+                entry["date"].strftime("%b %d")
             )
-            for entry in app.db.entries.find({})
+            for entry in entries
         ]
 
         return render_template("home.html", entries=entries_with_date)
